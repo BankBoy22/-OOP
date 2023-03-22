@@ -1,0 +1,93 @@
+# -using System;
+
+public class Stack
+{
+    private int[] stackArray;
+    private int top; // 스택의 가장 위에 있는 원소의 인덱스를 가리킴
+
+    public Stack(int size)
+    {
+        stackArray = new int[size];
+        top = -1;
+    }
+
+    public void Push(int value)
+    {
+        if (top == stackArray.Length - 1)
+        {
+            Console.WriteLine("Stack overflow error");
+            return;
+        }
+        top++;
+        stackArray[top] = value;
+    }
+
+    public int Pop()
+    {
+        if (top == -1)
+        {
+            Console.WriteLine("Stack underflow error");
+            return -1;
+        }
+        int value = stackArray[top];
+        top--;
+        return value;
+    }
+
+    public int Peek()
+    {
+        if (top == -1)
+        {
+            Console.WriteLine("Stack is empty");
+            return -1;
+        }
+        return stackArray[top];
+    }
+
+    public bool IsEmpty()
+    {
+        return top == -1;
+    }
+
+    public void PrintStack()
+    {
+        if (top == -1)
+        {
+            Console.WriteLine("Stack is empty");
+            return;
+        }
+        Console.WriteLine("Stack contents:");
+        for (int i = top; i >= 0; i--)
+        {
+            Console.WriteLine(stackArray[i]);
+        }
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Stack stack = new Stack(5);
+
+        stack.Push(10);
+        stack.Push(20);
+        stack.Push(30);
+
+        Console.WriteLine(stack.Pop()); // 30
+        Console.WriteLine(stack.Pop()); // 20
+
+        stack.Push(40);
+
+        Console.WriteLine(stack.Peek()); // 40
+
+        stack.PrintStack(); 
+        /*
+        Stack contents:
+        40
+        10
+        */
+
+        Console.WriteLine(stack.IsEmpty()); // False
+    }
+}
