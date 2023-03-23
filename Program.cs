@@ -113,7 +113,6 @@ namespace ConsoleApp1
         }
 
 
-
         public bool isEmpty()
         {
             return (top == -1);
