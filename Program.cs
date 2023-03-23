@@ -60,6 +60,9 @@ namespace ConsoleApp1
                     case 4:
                         Console.WriteLine("프로그램을 종료합니다.");
                         return;
+                    default:
+                        Console.WriteLine("메뉴의 버튼을 다시 입력하여 주십시오");
+                        break;
                 }
             }
         }
